@@ -27,9 +27,14 @@ Result shown to the user
 
 ## Screenshots
 
-| Landing | Survey | Results |
-|---|---|---|
-| ![Landing page](docs/screenshots/landing.png) | ![Survey](docs/screenshots/survey.png) | ![Results page](docs/screenshots/results.png) |
+**Landing page**
+![Landing page](docs/screenshots/landing.png)
+
+**Survey**
+![Survey](docs/screenshots/survey.png)
+
+**Results**
+![Results page](docs/screenshots/results.png)
 
 ---
 
