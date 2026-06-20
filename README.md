@@ -23,6 +23,15 @@ Result shown to the user
 ```
 
 ---
+---
+
+## Screenshots
+
+| Landing | Survey | Results |
+|---|---|---|
+| ![Landing page](docs/screenshots/landing.png) | ![Survey](docs/screenshots/survey.png) | ![Results page](docs/screenshots/results.png) |
+
+---
 
 ## Project structure
 
