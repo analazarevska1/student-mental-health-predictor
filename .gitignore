@@ -1,0 +1,32 @@
+# ── Environment & secrets ───────────────────────────────
+.venv/
+venv/
+.env
+*.env
+!.env.example
+
+# ── Python ───────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# ── Dataset (too large / private — see README for source) ─
+data/raw_data.csv
+data/*.csv
+!data/.gitkeep
+
+# ── Training cache (regeneratable via notebooks/02) ───────
+models/X_train.npy
+models/X_test.npy
+models/y_train.npy
+models/y_test.npy
+
+# ── OS / editor ──────────────────────────────────────────
+.DS_Store
+.vscode/
+*.swp
+
+# ── Misc ─────────────────────────────────────────────────
+.hintrc

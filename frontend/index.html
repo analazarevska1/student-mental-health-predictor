@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MindCheck — Student Wellbeing Assessment</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- ── LANDING ─────────────────────────────────────────── -->
+  <div id="landing" class="screen active">
+
+    <!-- Nav -->
+    <nav class="nav">
+      <div class="nav-inner">
+        <div class="nav-brand">
+          <svg width="28" height="28" viewBox="0 0 48 48" fill="none">
+            <circle cx="24" cy="24" r="23" stroke="#4a7c59" stroke-width="1.5"/>
+            <path d="M14 28c0-5.523 4.477-10 10-10s10 4.477 10 10" stroke="#4a7c59" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="24" cy="30" r="3" fill="#4a7c59"/>
+          </svg>
+          <span>MindCheck</span>
+        </div>
+        <button class="btn-primary nav-cta" onclick="startSurvey()">Begin assessment</button>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-inner">
+        <h1 class="hero-title">Know your<br><em>burnout risk</em><br>before it knows you.</h1>
+        <p class="hero-sub">MindCheck analyses 12 wellbeing factors using a machine learning model trained on 150,000 student records — and gives you a personalised risk report in under 3 minutes.</p>
+        <div class="hero-actions">
+          <button class="btn-primary large" onclick="startSurvey()">
+            Take the free assessment
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <path d="M7 4l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <span class="hero-note">Anonymous · No account needed · Instant results</span>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-card-stack">
+          <div class="preview-card card-back-2"></div>
+          <div class="preview-card card-back-1"></div>
+          <div class="preview-card card-front">
+            <div class="pcard-header">
+              <span class="pcard-dot low"></span>
+              <span class="pcard-label">Risk Assessment</span>
+            </div>
+            <div class="pcard-level">Low risk</div>
+            <div class="pcard-bars">
+              <div class="pbar-row">
+                <span>Stress</span>
+                <div class="pbar-track"><div class="pbar-fill" style="width:35%"></div></div>
+                <span>3.5</span>
+              </div>
+              <div class="pbar-row">
+                <span>Sleep</span>
+                <div class="pbar-track"><div class="pbar-fill good" style="width:75%"></div></div>
+                <span>7.5h</span>
+              </div>
+              <div class="pbar-row">
+                <span>Anxiety</span>
+                <div class="pbar-track"><div class="pbar-fill" style="width:28%"></div></div>
+                <span>2.8</span>
+              </div>
+              <div class="pbar-row">
+                <span>Activity</span>
+                <div class="pbar-track"><div class="pbar-fill good" style="width:65%"></div></div>
+                <span>6.5</span>
+              </div>
+            </div>
+            <div class="pcard-tip">Keep maintaining your sleep schedule — it is your strongest protective factor.</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-bg">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+      </div>
+    </section>
+
+    <!-- Stats strip -->
+    <section class="stats-strip">
+      <div class="stats-inner">
+        <div class="stat-item">
+          <span class="stat-num">150k</span>
+          <span class="stat-label">students in training data</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-num">86.5%</span>
+          <span class="stat-label">model F1 score</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-num">12</span>
+          <span class="stat-label">wellbeing factors analysed</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-num">3 min</span>
+          <span class="stat-label">to complete</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="how-section">
+      <div class="section-inner">
+        <div class="section-eyebrow">How it works</div>
+        <h2 class="section-heading">Three steps to your<br>wellbeing report</h2>
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-num">01</div>
+            <div class="step-icon">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                <rect x="4" y="4" width="20" height="20" rx="5" stroke="#4a7c59" stroke-width="1.5"/>
+                <path d="M9 14h10M9 10h6M9 18h8" stroke="#4a7c59" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="step-title">Fill in the survey</h3>
+            <p class="step-desc">Answer 20 questions across 5 sections covering your academic life, mental wellbeing, sleep, physical activity, and social connections.</p>
+          </div>
+          <div class="step-connector">
+            <svg width="40" height="16" viewBox="0 0 40 16" fill="none">
+              <path d="M0 8h36M30 2l6 6-6 6" stroke="#c5d9c9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="step-card">
+            <div class="step-num">02</div>
+            <div class="step-icon">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                <circle cx="14" cy="14" r="10" stroke="#4a7c59" stroke-width="1.5"/>
+                <path d="M14 9v5l3 3" stroke="#4a7c59" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="step-title">Model analyses your data</h3>
+            <p class="step-desc">A Logistic Regression classifier trained on 150,000 student records processes your responses and predicts your burnout risk level.</p>
+          </div>
+          <div class="step-connector">
+            <svg width="40" height="16" viewBox="0 0 40 16" fill="none">
+              <path d="M0 8h36M30 2l6 6-6 6" stroke="#c5d9c9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="step-card">
+            <div class="step-num">03</div>
+            <div class="step-icon">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                <path d="M14 4l2.6 7.4H24l-6.3 4.6 2.4 7.4L14 19l-6.1 4.4 2.4-7.4L4 11.4h7.4z" stroke="#4a7c59" stroke-width="1.5" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3 class="step-title">Get your personalised report</h3>
+            <p class="step-desc">Receive a risk classification — Low, Medium, or High — along with specific, actionable recommendations tailored to your responses.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What we measure -->
+    <section class="factors-section">
+      <div class="section-inner">
+        <div class="section-eyebrow">What we assess</div>
+        <h2 class="section-heading">12 factors that shape<br>student wellbeing</h2>
+        <div class="factors-grid">
+          <div class="factor-card">
+            <div class="factor-icon stress">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                <path d="M11 3v4M11 15v4M3 11h4M15 11h4M5.6 5.6l2.8 2.8M13.6 13.6l2.8 2.8M5.6 16.4l2.8-2.8M13.6 8.4l2.8-2.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="factor-name">Stress level</div>
+            <div class="factor-weight high-weight">Strongest predictor</div>
+          </div>
+          <div class="factor-card">
+            <div class="factor-icon depression">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M8 14s1-2 3-2 3 2 3 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                <circle cx="8.5" cy="9.5" r="1" fill="currentColor"/>
+                <circle cx="13.5" cy="9.5" r="1" fill="currentColor"/>
+              </svg>
+            </div>
+            <div class="factor-name">Depression score</div>
+            <div class="factor-weight high-weight">Strong predictor</div>
+          </div>
+          <div class="factor-card">
+            <div class="factor-icon anxiety">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                <path d="M11 4c-3.9 0-7 3.1-7 7 0 2.4 1.2 4.5 3 5.7V19h8v-2.3c1.8-1.2 3-3.3 3-5.7 0-3.9-3.1-7-7-7z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                <path d="M9 19h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="factor-name">Anxiety score</div>
+            <div class="factor-weight high-weight">Strong predictor</div>
+          </div>
+          <div class="factor-card">
+            <div class="factor-icon exam">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                <rect x="4" y="3" width="14" height="16" rx="3" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M8 8h6M8 11h6M8 14h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="factor-name">Exam pressure</div>
+            <div class="factor-weight mid-weight">Moderate predictor</div>
+          </div>
+          <div class="factor-card">
+            <div class="factor-icon sleep">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                <path d="M18 13A7 7 0 019 4a7 7 0 100 14 7 7 0 009-5z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="factor-name">Sleep hours</div>
+            <div class="factor-weight mid-weight">Moderate predictor</div>
+          </div>
+          <div class="factor-card">
+            <div class="factor-icon study">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                <path d="M4 6l7-3 7 3v6c0 3.5-3 6-7 7-4-1-7-3.5-7-7V6z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="factor-name">Study hours</div>
+            <div class="factor-weight mid-weight">Moderate predictor</div>
+          </div>
+          <div class="factor-card">
+            <div class="factor-icon financial">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M11 7v1.5M11 13.5V15M8.5 9.5a2.5 2.5 0 015 0c0 1.5-2.5 2-2.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="factor-name">Financial stress</div>
+            <div class="factor-weight low-weight">Contributing factor</div>
+          </div>
+          <div class="factor-card">
+            <div class="factor-icon social">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                <circle cx="9" cy="8" r="3" stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="16" cy="10" r="2.5" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M3 18c0-3 2.7-5 6-5s6 2 6 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M16 14c2 0 4 1 4 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="factor-name">Social support</div>
+            <div class="factor-weight low-weight">Contributing factor</div>
+          </div>
+          <div class="factor-card">
+            <div class="factor-icon family">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                <path d="M3 19V9l8-5 8 5v10H3z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                <rect x="8.5" y="13" width="5" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <div class="factor-name">Family expectation</div>
+            <div class="factor-weight low-weight">Contributing factor</div>
+          </div>
+          <div class="factor-card">
+            <div class="factor-icon activity">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                <path d="M4 12l4-4 4 4 4-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="17" cy="17" r="2" stroke="currentColor" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <div class="factor-name">Physical activity</div>
+            <div class="factor-weight low-weight">Contributing factor</div>
+          </div>
+          <div class="factor-card">
+            <div class="factor-icon age">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                <circle cx="11" cy="8" r="4" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M4 19c0-3.3 3.1-6 7-6s7 2.7 7 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="factor-name">Age</div>
+            <div class="factor-weight low-weight">Demographic</div>
+          </div>
+          <div class="factor-card">
+            <div class="factor-icon gender">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                <circle cx="11" cy="10" r="5" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M11 15v5M8.5 18h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="factor-name">Gender</div>
+            <div class="factor-weight low-weight">Demographic</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Context section -->
+    <section class="context-section">
+      <div class="section-inner context-inner">
+        <div class="context-text">
+          <div class="section-eyebrow">Why this matters</div>
+          <h2 class="section-heading" style="font-size:2rem">Student burnout is more<br>common than you think.</h2>
+          <p class="context-body">Burnout among university students is a growing mental health concern. It builds slowly — through a combination of academic pressure, poor sleep, reduced social connection, and financial worry — often without students noticing until it becomes severe.</p>
+          <p class="context-body">MindCheck was built to make self-awareness accessible. It uses a machine learning model trained on real student data to give you an honest, data-driven picture of where you stand — and what you can do about it.</p>
+          <button class="btn-primary" style="margin-top:1.5rem" onclick="startSurvey()">Start the assessment</button>
+        </div>
+        <div class="context-stats">
+          <div class="cstat-card">
+            <div class="cstat-num">1 in 3</div>
+            <div class="cstat-label">university students report symptoms of burnout during their studies</div>
+          </div>
+          <div class="cstat-card">
+            <div class="cstat-num">67%</div>
+            <div class="cstat-label">of students say academic pressure is their biggest source of stress</div>
+          </div>
+          <div class="cstat-card">
+            <div class="cstat-num">6h</div>
+            <div class="cstat-label">average sleep — well below the recommended 7–9 hours for young adults</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="cta-section">
+      <div class="cta-inner">
+        <h2 class="cta-title">Ready to check in<br>with yourself?</h2>
+        <p class="cta-sub">It takes 3 minutes. Your answers are anonymous and never stored.</p>
+        <button class="btn-primary large" onclick="startSurvey()">
+          Begin assessment
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <path d="M7 4l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+      <div class="cta-bg">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-3"></div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="nav-brand">
+          <svg width="20" height="20" viewBox="0 0 48 48" fill="none">
+            <circle cx="24" cy="24" r="23" stroke="#4a7c59" stroke-width="1.5"/>
+            <path d="M14 28c0-5.523 4.477-10 10-10s10 4.477 10 10" stroke="#4a7c59" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="24" cy="30" r="3" fill="#4a7c59"/>
+          </svg>
+          <span>MindCheck</span>
+        </div>
+        <p class="footer-note">For educational purposes only. Not a clinical tool. If you are struggling, please contact your university's student support service.</p>
+      </div>
+    </footer>
+  </div>
+
+  <!-- ── SURVEY ──────────────────────────────────────────── -->
+  <div id="survey" class="screen">
+    <div class="survey-header">
+      <button class="back-btn" onclick="goBack()">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+          <path d="M11 14L6 9l5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Back
+      </button>
+      <div class="progress-wrap">
+        <div class="progress-track">
+          <div class="progress-bar" id="progress-bar"></div>
+        </div>
+        <span class="progress-label" id="progress-label">1 of 5</span>
+      </div>
+    </div>
+
+    <div class="survey-body">
+      <div class="section" id="section-1">
+        <div class="section-tag">Section 1 of 5</div>
+        <h2 class="section-title">About you</h2>
+        <p class="section-desc">Let's start with some basic information.</p>
+        <div class="field-group">
+          <label class="field-label">How old are you?</label>
+          <input class="input-field" type="number" id="age" min="16" max="35" placeholder="e.g. 21"/>
+        </div>
+        <div class="field-group">
+          <label class="field-label">How do you identify?</label>
+          <div class="radio-group">
+            <label class="radio-card"><input type="radio" name="gender" value="0"/> Male</label>
+            <label class="radio-card"><input type="radio" name="gender" value="1"/> Female</label>
+            <label class="radio-card"><input type="radio" name="gender" value="2"/> Other</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="section" id="section-2">
+        <div class="section-tag">Section 2 of 5</div>
+        <h2 class="section-title">Academic life</h2>
+        <p class="section-desc">Tell us about your study habits and academic pressures.</p>
+        <div class="field-group">
+          <label class="field-label">How many hours do you study outside of class per day?</label>
+          <div class="number-input-row">
+            <input class="input-field small" type="number" id="study_hours_per_day" min="0" max="16" placeholder="0" step="0.5"/>
+            <span class="unit-label">hours / day</span>
+          </div>
+        </div>
+        <div class="field-group">
+          <label class="field-label">How much pressure do you feel from upcoming exams or deadlines?</label>
+          <div class="slider-wrap">
+            <input class="slider" type="range" id="exam_pressure" min="0" max="10" value="5" step="0.1" oninput="updateSlider('exam_pressure', this.value)"/>
+            <div class="slider-labels">
+              <span>None at all</span><span class="slider-val" id="exam_pressure-val">5.0</span><span>Extreme</span>
+            </div>
+          </div>
+        </div>
+        <div class="field-group">
+          <label class="field-label">How much pressure do you feel from your family regarding your studies?</label>
+          <div class="slider-wrap">
+            <input class="slider" type="range" id="family_expectation" min="0" max="10" value="5" step="0.1" oninput="updateSlider('family_expectation', this.value)"/>
+            <div class="slider-labels">
+              <span>None at all</span><span class="slider-val" id="family_expectation-val">5.0</span><span>Extreme</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section" id="section-3">
+        <div class="section-tag">Section 3 of 5</div>
+        <h2 class="section-title">Mental wellbeing</h2>
+        <p class="section-desc">There are no right or wrong answers. Be as honest as you can.</p>
+        <p class="sub-heading">Stress</p>
+        <div class="field-group">
+          <label class="field-label">How often do you feel overwhelmed by your workload?</label>
+          <div class="slider-wrap">
+            <input class="slider" type="range" id="stress_q1" min="0" max="10" value="5" step="0.1" oninput="updateSlider('stress_q1', this.value)"/>
+            <div class="slider-labels"><span>Never</span><span class="slider-val" id="stress_q1-val">5.0</span><span>Always</span></div>
+          </div>
+        </div>
+        <div class="field-group">
+          <label class="field-label">How often do you struggle to relax after a study session?</label>
+          <div class="slider-wrap">
+            <input class="slider" type="range" id="stress_q2" min="0" max="10" value="5" step="0.1" oninput="updateSlider('stress_q2', this.value)"/>
+            <div class="slider-labels"><span>Never</span><span class="slider-val" id="stress_q2-val">5.0</span><span>Always</span></div>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <p class="sub-heading">Anxiety</p>
+        <div class="field-group">
+          <label class="field-label">How often do you feel nervous or on edge for no clear reason?</label>
+          <div class="slider-wrap">
+            <input class="slider" type="range" id="anxiety_q1" min="0" max="10" value="5" step="0.1" oninput="updateSlider('anxiety_q1', this.value)"/>
+            <div class="slider-labels"><span>Never</span><span class="slider-val" id="anxiety_q1-val">5.0</span><span>Always</span></div>
+          </div>
+        </div>
+        <div class="field-group">
+          <label class="field-label">How often do anxious thoughts keep you up at night?</label>
+          <div class="slider-wrap">
+            <input class="slider" type="range" id="anxiety_q2" min="0" max="10" value="5" step="0.1" oninput="updateSlider('anxiety_q2', this.value)"/>
+            <div class="slider-labels"><span>Never</span><span class="slider-val" id="anxiety_q2-val">5.0</span><span>Always</span></div>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <p class="sub-heading">Mood</p>
+        <div class="field-group">
+          <label class="field-label">How often do you feel unmotivated or emotionally empty?</label>
+          <div class="slider-wrap">
+            <input class="slider" type="range" id="depression_q1" min="0" max="10" value="5" step="0.1" oninput="updateSlider('depression_q1', this.value)"/>
+            <div class="slider-labels"><span>Never</span><span class="slider-val" id="depression_q1-val">5.0</span><span>Always</span></div>
+          </div>
+        </div>
+        <div class="field-group">
+          <label class="field-label">How often do you find it hard to enjoy things you used to like?</label>
+          <div class="slider-wrap">
+            <input class="slider" type="range" id="depression_q2" min="0" max="10" value="5" step="0.1" oninput="updateSlider('depression_q2', this.value)"/>
+            <div class="slider-labels"><span>Never</span><span class="slider-val" id="depression_q2-val">5.0</span><span>Always</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section" id="section-4">
+        <div class="section-tag">Section 4 of 5</div>
+        <h2 class="section-title">Lifestyle</h2>
+        <p class="section-desc">Your daily habits have a big impact on your wellbeing.</p>
+        <div class="field-group">
+          <label class="field-label">How many hours do you sleep on average per night?</label>
+          <div class="number-input-row">
+            <input class="input-field small" type="number" id="sleep_hours" min="0" max="12" placeholder="7" step="0.5"/>
+            <span class="unit-label">hours / night</span>
+          </div>
+        </div>
+        <div class="field-group">
+          <label class="field-label">How many days a week do you exercise or play sport?</label>
+          <div class="slider-wrap">
+            <input class="slider" type="range" id="activity_q1" min="0" max="7" value="3" step="1" oninput="updateSlider('activity_q1', this.value)"/>
+            <div class="slider-labels"><span>0 days</span><span class="slider-val" id="activity_q1-val">3</span><span>7 days</span></div>
+          </div>
+        </div>
+        <div class="field-group">
+          <label class="field-label">How much of your day is spent sitting or inactive?</label>
+          <div class="slider-wrap">
+            <input class="slider" type="range" id="activity_q2" min="0" max="10" value="5" step="0.1" oninput="updateSlider('activity_q2', this.value)"/>
+            <div class="slider-labels"><span>Very active</span><span class="slider-val" id="activity_q2-val">5.0</span><span>Mostly sitting</span></div>
+          </div>
+        </div>
+        <div class="field-group">
+          <label class="field-label">How stressed are you about your financial situation?</label>
+          <div class="slider-wrap">
+            <input class="slider" type="range" id="financial_stress" min="0" max="10" value="5" step="0.1" oninput="updateSlider('financial_stress', this.value)"/>
+            <div class="slider-labels"><span>Not at all</span><span class="slider-val" id="financial_stress-val">5.0</span><span>Very stressed</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section" id="section-5">
+        <div class="section-tag">Section 5 of 5</div>
+        <h2 class="section-title">Social life</h2>
+        <p class="section-desc">Connection with others plays a big role in how we cope.</p>
+        <div class="field-group">
+          <label class="field-label">How many hours a day do you spend with friends in person?</label>
+          <div class="number-input-row">
+            <input class="input-field small" type="number" id="social_q1" min="0" max="10" placeholder="2" step="0.5"/>
+            <span class="unit-label">hours / day</span>
+          </div>
+        </div>
+        <div class="field-group">
+          <label class="field-label">How often do you talk to or see a family member?</label>
+          <div class="slider-wrap">
+            <input class="slider" type="range" id="social_q2" min="0" max="10" value="5" step="0.1" oninput="updateSlider('social_q2', this.value)"/>
+            <div class="slider-labels"><span>Rarely</span><span class="slider-val" id="social_q2-val">5.0</span><span>Every day</span></div>
+          </div>
+        </div>
+        <div class="field-group">
+          <label class="field-label">How often do you feel lonely even when around people?</label>
+          <div class="slider-wrap">
+            <input class="slider" type="range" id="social_q3" min="0" max="10" value="5" step="0.1" oninput="updateSlider('social_q3', this.value)"/>
+            <div class="slider-labels"><span>Never</span><span class="slider-val" id="social_q3-val">5.0</span><span>Always</span></div>
+          </div>
+        </div>
+        <div class="submit-area">
+          <button class="btn-primary full" onclick="submitSurvey()">
+            <span id="submit-text">Get my results</span>
+            <div id="submit-spinner" class="spinner hidden"></div>
+          </button>
+          <p class="submit-note">Your answers are not stored anywhere.</p>
+        </div>
+      </div>
+
+      <div class="nav-row" id="nav-row">
+        <button class="btn-next" onclick="nextSection()">
+          Continue
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <path d="M7 4l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div> <!-- ── RESULTS ─────────────────────────────────────────── -->
+  <div id="results" class="screen">
+    <div class="results-inner">
+      <div class="results-header">
+        <div class="logo-mark small">
+          <svg width="32" height="32" viewBox="0 0 48 48" fill="none">
+            <circle cx="24" cy="24" r="23" stroke="#4a7c59" stroke-width="1.5"/>
+            <path d="M14 28c0-5.523 4.477-10 10-10s10 4.477 10 10" stroke="#4a7c59" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="24" cy="30" r="3" fill="#4a7c59"/>
+          </svg>
+        </div>
+        <span class="results-brand">MindCheck</span>
+      </div>
+      <p class="results-intro">Your assessment is complete. Here is your result.</p>
+      <div class="risk-card" id="risk-card">
+        <div class="risk-label" id="risk-label">Analysing...</div>
+        <div class="risk-level" id="risk-level">—</div>
+        <div class="risk-desc" id="risk-desc"></div>
+      </div>
+      <div class="tips-section">
+        <h3 class="tips-heading">Personalised recommendations</h3>
+        <ul class="tips-list" id="tips-list"></ul>
+      </div>
+      <div class="closing-card" id="closing-card"></div>
+      <div class="results-footer">
+        <button class="btn-outline" onclick="retake()">Retake assessment</button>
+        <p class="disclaimer">This tool is for educational purposes only and is not a clinical diagnosis. If you are struggling, please reach out to your university's student support service.</p>
+      </div>
+    </div>
+  </div>
+ 
+  <script src="app.js"></script>
+</body>
+</html>

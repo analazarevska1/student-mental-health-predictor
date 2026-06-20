@@ -1,0 +1,29 @@
+[project]
+name = "mindcheck"
+version = "1.0.0"
+description = "Student burnout risk predictor with AI-powered personalised recommendations"
+readme = "README.md"
+authors = [{name = "Ana Lazarevska", email = "ana.lazarevska19@gmail.com"}]
+requires-python = ">=3.10"
+dependencies = [
+    "flask",
+    "flask-cors",
+    "python-dotenv",
+    "scikit-learn",
+    "xgboost",
+    "numpy",
+    "pandas",
+    "shap",
+    "strands-agents",
+]
+ 
+[project.optional-dependencies]
+notebooks = [
+    "jupyter",
+    "matplotlib",
+    "seaborn",
+]
+
+[tool.setuptools]
+py-modules = []
+ 
