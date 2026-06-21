@@ -23,7 +23,7 @@ from strands.models.openai import OpenAIModel
 BASE          = os.path.dirname(os.path.abspath(__file__))
 MODEL_PATH    = os.path.join(BASE, "../models/best_model.pkl")
 FEATURES_PATH = os.path.join(BASE, "../models/feature_names.pkl")
-X_TRAIN_PATH = os.path.join(BASE, "../models/X_train.npy")
+X_TRAIN_PATH = os.path.join(BASE, "../models/shap_background.npy")
 X_train_background = np.load(X_TRAIN_PATH)
 
 with open(MODEL_PATH, "rb") as f:
