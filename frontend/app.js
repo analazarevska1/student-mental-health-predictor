@@ -197,9 +197,9 @@ async function submitSurvey() {
     if (!res.ok) throw new Error(`Server error: ${res.status}`);
     const data = await res.json();
     showResults(data, payload);
-  } catch (err) {
+} catch (err) {
     console.error(err);
-    showToast('Something went wrong connecting to the server. Please try again in a moment.');
+    showToast('Error: ' + err.message);
 }
    finally {
     document.getElementById('submit-text').textContent = 'Get my results';
