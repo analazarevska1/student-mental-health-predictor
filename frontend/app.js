@@ -1,5 +1,6 @@
 // ── Config ─────────────────────────────────────────────
-const API_URL = 'http://localhost:5001/predict';
+// const API_URL = 'http://localhost:5001/predict';
+const API_URL = `${window.location.origin}/predict`;
 ;
 const TOTAL_SECS  = 5;
 
@@ -197,9 +198,9 @@ async function submitSurvey() {
     if (!res.ok) throw new Error(`Server error: ${res.status}`);
     const data = await res.json();
     showResults(data, payload);
-} catch (err) {
+}  catch (err) {
     console.error(err);
-    showToast('Error: ' + err.message);
+    showToast('Something went wrong connecting to the server. Please try again in a moment.');
 }
    finally {
     document.getElementById('submit-text').textContent = 'Get my results';
