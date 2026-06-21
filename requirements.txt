@@ -6,4 +6,5 @@ numpy
 pandas
 shap
 strands-agents
+openai
 gunicorn
