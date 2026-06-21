@@ -199,8 +199,9 @@ async function submitSurvey() {
     showResults(data, payload);
   } catch (err) {
     console.error(err);
-    showToast('Could not connect to the backend. Make sure app.py is running.');
-  } finally {
+    showToast('Something went wrong connecting to the server. Please try again in a moment.');
+}
+   finally {
     document.getElementById('submit-text').textContent = 'Get my results';
     document.getElementById('submit-spinner').classList.add('hidden');
   }
